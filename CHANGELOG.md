@@ -1,5 +1,9 @@
 # Changes
 
+## v2.0.1
+
+* Fix 'invalid arg type` exception
+
 ## v2.0.0
 
 * BREAKING CHANGE: Require Node 8

@@ -1,3 +1,4 @@
+const os = require('os');
 const signalExit = require('signal-exit')
 /* istanbul ignore next */
 const spawn = process.platform === 'win32' ? require('cross-spawn') : require('child_process').spawn
@@ -60,7 +61,7 @@ function foregroundChild (...fgArgs) {
 
   child.on('close', (code, signal) => {
     // Allow the callback to inspect the child’s exit code and/or modify it.
-    process.exitCode = signal ? 128 + signal : code
+    process.exitCode = signal ? 128 + os.constants.signals[signal] : code
 
     let done = false;
     const doneCB = () => {
